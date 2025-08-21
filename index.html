@@ -1,26 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Star & Score</title>
-  <meta name="description" content="Rate. Reveal. Reward.">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  
+  <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-  <header>
-    <h1>⭐ Star & Score</h1>
-    <p>Rate. Reveal. Reward.</p>
-  </header>
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>Your site is live! Edit <code>index.html</code> to update content.</p>
-    </section>
-  </main>
-  <footer>
-    <p>© <span id="year"></span> Star & Score</p>
-  </footer> <script src="assets/js/app.js"></script>
+<body style="background:#0b0b12;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;">
+
+<!-- Age Gate -->
+<div id="ageGate" style="position:fixed;inset:0;background:#0b0b12;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#141428;padding:24px;border-radius:14px;max-width:520px;width:92%;text-align:center;color:#fff;">
+    <h2 style="margin:0 0 8px">Star & Score — 18+ Only</h2>
+    <p style="opacity:.86;margin:0 0 18px">This site includes suggestive, flirty content intended for adults.<br>By entering, you confirm you are 18+.</p>
+    <button onclick="enterSite()" style="padding:12px 18px;border-radius:10px;border:0;cursor:pointer">I’m 18+ — Enter</button>
+    <a href="https://google.com" style="display:block;margin-top:12px;color:#9aa0ff;text-decoration:underline">I’m under 18</a>
+  </div>
+</div>
+<script>
+  function enterSite(){ document.getElementById('ageGate').style.display='none'; localStorage.setItem('s&s_age_ok','1');}
+  if(localStorage.getItem('s&s_age_ok')==='1'){ document.addEventListener('DOMContentLoaded',()=>document.getElementById('ageGate').style.display='none');}
+</script>
+
+<!-- Hero -->
+<section style="padding:72px 20px 48px;max-width:1100px;margin:auto;color:#fff;">
+  <h1 style="font-size:44px;line-height:1.1;margin:0 0 10px">Rate. React. Reward.</h1>
+  <p style="opacity:.9;max-width:720px;margin:0 0 24px">
+    Flirty, gamer-core vibes with creator spotlights, cosplay, and anime-inspired looks. 
+    Earn points by rating previews, unlock bonuses, and vote what goes live next.
+  </p>
+  <div>
+    <a href="#previews" style="padding:12px 16px;border-radius:10px;background:#7a7dff;color:#0b0b12;text-decoration:none;margin-right:10px;">Start rating</a>
+    <a href="#creator-spotlights" style="padding:12px 16px;border-radius:10px;border:1px solid #7a7dff;color:#7a7dff;text-decoration:none;">Creator spotlights</a>
+  </div>
+</section>
+
+<!-- Category tiles -->
+<section id="previews" style="max-width:1100px;margin:10px auto 60px;padding:0 20px;color:#fff;">
+  <h2 style="margin:18px 0 8px">Pick your zone</h2>
+  <p style="opacity:.8;margin:0 0 18px">Fan-inspired themes. Not affiliated with the game publishers.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;">
+    <a href="/fortnite.html" class="card">Fortnite Fan Zone</a>
+    <a href="/clash-royale.html" class="card">Clash Royale Crowd</a>
+    <a href="/roblox.html" class="card">Roblox Creators</a>
+    <a href="/anime.html" class="card">Anime & Cosplay</a>
+    <a href="/spotlights.html" class="card">Celebrity Spotlights</a>
+  </div>
+</section>
+
+<footer style="padding:28px 20px;color:#b9bde6;opacity:.8">
+  <small>Star & Score features fan-inspired themes and original content. 
+  Not endorsed by or affiliated with Epic Games, Supercell, Roblox Corporation, or any IP holders. 
+  Celebrity spotlights are news/editorial style commentary and do not imply endorsement. 18+ only.</small>
+</footer>
+
+<style>
+  .card{background:#151632;border:1px solid #282a54;border-radius:12px;padding:18px;color:#fff;text-decoration:none;display:block}
+  .card:hover{border-color:#7a7dff;transform:translateY(-1px)}
+</style>
 </body>
 </html>
